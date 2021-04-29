@@ -32,19 +32,17 @@ void loop() {
         distances[i] = (durations[i]/2) / 29.1;
     }
 
+    Serial.print("[ ");
     for(int i = 0; i < numSensors; i++){
         if (distances[i] >= 300 || distances[i] <= 0){
-            Serial.print("Sensor ");
-            Serial.print(i);
-            Serial.print(" Is Out Of Range!\n");
+            Serial.print(-1);
+            Serial.print(" ");
         }
         else {
-            Serial.print("Sensor ");
-            Serial.print(i);
-            Serial.print(": ");
             Serial.print(distances[i]);
-            Serial.println(" cm");
+            Serial.print(" ");
         }
     }
+    Serial.print("];\n");
     delay(500);
 }
